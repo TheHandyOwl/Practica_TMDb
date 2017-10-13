@@ -20,7 +20,7 @@
          location = "group:ImageLoading.playground">
       </FileRef>
       <FileRef
-         location = "group:/Users/guille/Documents/developer/projects/TMDb/Playgrounds/WebService.playground">
+         location = "group:WebService.playground">
       </FileRef>
    </Group>
 </Workspace>

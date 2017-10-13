@@ -1,0 +1,27 @@
+{
+  "iOS" : [
+    {
+      "hash" : "d83d70f291cfef39e3064ef2bd5b82af44ae2c81a84dfe2033f9fc49c8ce0222",
+      "name" : "Kingfisher"
+    }
+  ],
+  "commitish" : "4.0.1",
+  "watchOS" : [
+    {
+      "hash" : "96c47ee8d4a78f93ddafde62b5dbbba7e348260cb9b2aaceb9ef9ef367e41f9e",
+      "name" : "Kingfisher"
+    }
+  ],
+  "tvOS" : [
+    {
+      "hash" : "ee761d9206882f895ca2d08c482cb292f3a8b4a3f930c1470b0a65b4374d256e",
+      "name" : "Kingfisher"
+    }
+  ],
+  "Mac" : [
+    {
+      "hash" : "425024bcaf3deac640d4d2c1574c13d0b25db7461397883b0f63f999f091371c",
+      "name" : "Kingfisher"
+    }
+  ]
+}

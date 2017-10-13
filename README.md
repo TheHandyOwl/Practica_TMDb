@@ -31,3 +31,7 @@ You should open TMDb.xcworkspace to start the aplication.
 $ cd <your_TMDB_dir>
 $ open TMDb.xcworkspace
 ```
+
+## Build and run
+
+Build TMDbCore and TMDb to test Playgrounds and run the aplication.

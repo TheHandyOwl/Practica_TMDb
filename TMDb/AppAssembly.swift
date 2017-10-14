@@ -13,5 +13,5 @@ import TMDbCore
 final class AppAssembly {
     private(set) lazy var window = UIWindow(frame: UIScreen.main.bounds)
     private(set) lazy var navigationController = UINavigationController()
-    private(set) lazy var coreAssembly = CoreAssembly() // Más adelante inyectaremos el navigatorController porque se comparte
+    private(set) lazy var coreAssembly = CoreAssembly(navigatorController: navigationController)
 }

@@ -8,23 +8,24 @@
 
 import Foundation
 
-final class FeaturedAssembly {
-	private let imageLoadingAssembly: ImageLoadingAssembly
-
-	init(imageLoadingAssembly: ImageLoadingAssembly) {
-		self.imageLoadingAssembly = imageLoadingAssembly
-	}
-
-	func viewController() -> FeaturedViewController {
-		return FeaturedViewController(presenter: presenter(),
-		                              cardPresenter: cardPresenter())
-	}
-
-	func presenter() -> FeaturedPresenter {
-		return FeaturedPresenter()
-	}
-
-	func cardPresenter() -> CardPresenter {
-		return CardPresenter(imageRepository: imageLoadingAssembly.imageRepository)
-	}
+final public class FeaturedAssembly {
+    private let imageLoadingAssembly: ImageLoadingAssembly
+    
+    init(imageLoadingAssembly: ImageLoadingAssembly) {
+        self.imageLoadingAssembly = imageLoadingAssembly
+    }
+    
+    //public func viewController() -> FeaturedViewController {
+    public func viewController() -> UIViewController {
+        return FeaturedViewController(presenter: presenter(),
+                                      cardPresenter: cardPresenter())
+    }
+    
+    func presenter() -> FeaturedPresenter {
+        return FeaturedPresenter()
+    }
+    
+    func cardPresenter() -> CardPresenter {
+        return CardPresenter(imageRepository: imageLoadingAssembly.imageRepository)
+    }
 }

@@ -43,14 +43,16 @@ class FeaturedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        //title = "FEATURED" // No es correcto, se delega al presenter
         presenter.view = self
 		presenter.didLoad()
     }
 }
 
 extension FeaturedViewController: FeaturedView {
+    
 	func setShowsHeaderTitle(_ title: String) {
-		showsLabel.text = title
+        showsLabel.text = title
 	}
 
 	func setMoviesHeaderTitle(_ title: String) {

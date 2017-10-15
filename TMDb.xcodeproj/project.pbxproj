@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		076E07601F925C6500B91C75 /* DetailNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076E075F1F925C6500B91C75 /* DetailNavigator.swift */; };
 		076E07621F925D2600B91C75 /* PhoneDetailNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076E07611F925D2600B91C75 /* PhoneDetailNavigator.swift */; };
+		076E07651F92C23E00B91C75 /* SearchNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076E07641F92C23E00B91C75 /* SearchNavigator.swift */; };
+		076E07671F92C5A800B91C75 /* PhoneSearchNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076E07661F92C5A800B91C75 /* PhoneSearchNavigator.swift */; };
 		077EB05C1F9144BD007F3A19 /* AppAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077EB05B1F9144BD007F3A19 /* AppAssembly.swift */; };
 		992D27B81F7FFCA600BA79DE /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992D27B71F7FFCA600BA79DE /* DetailPresenter.swift */; };
 		992D27BB1F7FFD5E00BA79DE /* DetailSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992D27BA1F7FFD5E00BA79DE /* DetailSection.swift */; };
@@ -148,6 +150,8 @@
 /* Begin PBXFileReference section */
 		076E075F1F925C6500B91C75 /* DetailNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNavigator.swift; sourceTree = "<group>"; };
 		076E07611F925D2600B91C75 /* PhoneDetailNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneDetailNavigator.swift; sourceTree = "<group>"; };
+		076E07641F92C23E00B91C75 /* SearchNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchNavigator.swift; sourceTree = "<group>"; };
+		076E07661F92C5A800B91C75 /* PhoneSearchNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneSearchNavigator.swift; sourceTree = "<group>"; };
 		077EB05B1F9144BD007F3A19 /* AppAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAssembly.swift; sourceTree = "<group>"; };
 		992D27B71F7FFCA600BA79DE /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
 		992D27BA1F7FFD5E00BA79DE /* DetailSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSection.swift; sourceTree = "<group>"; };
@@ -276,6 +280,15 @@
 			path = Navigators;
 			sourceTree = "<group>";
 		};
+		076E07631F92C22500B91C75 /* Navigators */ = {
+			isa = PBXGroup;
+			children = (
+				076E07641F92C23E00B91C75 /* SearchNavigator.swift */,
+				076E07661F92C5A800B91C75 /* PhoneSearchNavigator.swift */,
+			);
+			path = Navigators;
+			sourceTree = "<group>";
+		};
 		992D27B91F7FFD1F00BA79DE /* Domain */ = {
 			isa = PBXGroup;
 			children = (
@@ -331,6 +344,7 @@
 		996690C01F7A973200AF16B3 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				076E07631F92C22500B91C75 /* Navigators */,
 				997A44241F7AA9780094E928 /* DI */,
 				996690C21F7A989200AF16B3 /* Presentation */,
 				993F1E811F7A9ED3004FE33B /* Domain */,
@@ -842,6 +856,8 @@
 				992D27BB1F7FFD5E00BA79DE /* DetailSection.swift in Sources */,
 				99A4653A1F7CE21C007F3B5B /* PosterStripCell.swift in Sources */,
 				993F1E7C1F7A9C0E004FE33B /* Show.swift in Sources */,
+				076E07651F92C23E00B91C75 /* SearchNavigator.swift in Sources */,
+				076E07671F92C5A800B91C75 /* PhoneSearchNavigator.swift in Sources */,
 				99A465351F7CDCAD007F3B5B /* DetailAboutView.swift in Sources */,
 				997A44231F7AA75A0094E928 /* Date+Utilities.swift in Sources */,
 				993F1E7A1F7A9AC3004FE33B /* Movie.swift in Sources */,

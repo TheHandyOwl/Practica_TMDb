@@ -26,7 +26,7 @@ extension SearchResult: Decodable {
 		switch mediaType {
 		case "movie":
 			self = try .movie(Movie(from: decoder))
-		case "tv":
+		case "tv": // Es show?
 			self = try .show(Show(from: decoder))
 		case "person":
 			self = try .person(Person(from: decoder))

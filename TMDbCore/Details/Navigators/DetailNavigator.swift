@@ -9,5 +9,5 @@
 import Foundation
 
 protocol DetailNavigator {
-    func showDetail(identifier: Int64, mediaType: MediaType)
+    func showDetail(withIdentifier identifier: Int64, mediaType: MediaType)
 }

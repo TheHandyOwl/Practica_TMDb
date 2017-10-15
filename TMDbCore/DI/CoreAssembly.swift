@@ -12,7 +12,8 @@ final public class CoreAssembly {
     private(set) lazy var detailAssembly = DetailAssembly(imageLoadingAssembly: imageLoadingAssembly,
                                                           navigationController: navigatorController)
     public private(set) lazy var featuredAssembly = FeaturedAssembly(imageLoadingAssembly: imageLoadingAssembly,
-                                                                     detailAssembly: detailAssembly)
+                                                                     detailAssembly: detailAssembly,
+                                                                     searchAssembly: searchAssembly)
 	private(set) lazy var searchAssembly = SearchAssembly(imageLoadingAssembly: imageLoadingAssembly)
 	private(set) lazy var imageLoadingAssembly = ImageLoadingAssembly(webServiceAssembly: webServiceAssembly)
 	private(set) lazy var webServiceAssembly = WebServiceAssembly()

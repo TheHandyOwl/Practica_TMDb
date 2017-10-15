@@ -18,7 +18,7 @@ final class PhoneDetailNavigator: DetailNavigator {
         self.viewControllerProvider = viewControllerProvider
     }
     
-    func showDetail(identifier: Int64, mediaType: MediaType) {
+    func showDetail(withIdentifier identifier: Int64, mediaType: MediaType) {
         let viewController = viewControllerProvider.detailViewController(identifier: identifier, mediaType: mediaType)
         navigationController.pushViewController(viewController, animated: true)
     }

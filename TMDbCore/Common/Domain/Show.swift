@@ -18,7 +18,7 @@ struct Show: Decodable {
 
 	private enum CodingKeys: String, CodingKey {
 		case identifier = "id"
-		case title
+		case title = "name"
 		case posterPath = "poster_path"
 		case backdropPath = "backdrop_path"
 		case firstAirDate = "first_air_date"

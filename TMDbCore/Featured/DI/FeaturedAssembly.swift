@@ -32,11 +32,16 @@ final public class FeaturedAssembly {
     }
     
     func presenter() -> FeaturedPresenter {
-        return FeaturedPresenter(detailNavigator: detailAssembly.detailNavigator())
+        return FeaturedPresenter(detailNavigator: detailAssembly.detailNavigator(),
+                                 repository: featuredRepository())
     }
     
     func cardPresenter() -> CardPresenter {
         return CardPresenter(imageRepository: imageLoadingAssembly.imageRepository,
                              dateFormatter: webServiceAssembly.dateFormatter)
+    }
+    
+    func featuredRepository() -> FeaturedRepositoryProtocol {
+        return FeaturedRepository(webService: webServiceAssembly.webService)
     }
 }

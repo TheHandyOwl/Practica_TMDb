@@ -13,6 +13,7 @@
 		076E07671F92C5A800B91C75 /* PhoneSearchNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076E07661F92C5A800B91C75 /* PhoneSearchNavigator.swift */; };
 		077EB05C1F9144BD007F3A19 /* AppAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077EB05B1F9144BD007F3A19 /* AppAssembly.swift */; };
 		0783E9831F940E3E003B68D8 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0783E9821F940E3E003B68D8 /* Page.swift */; };
+		0783E9861F942679003B68D8 /* FeaturedRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0783E9851F942679003B68D8 /* FeaturedRepository.swift */; };
 		992D27B81F7FFCA600BA79DE /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992D27B71F7FFCA600BA79DE /* DetailPresenter.swift */; };
 		992D27BB1F7FFD5E00BA79DE /* DetailSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992D27BA1F7FFD5E00BA79DE /* DetailSection.swift */; };
 		993F1E7A1F7A9AC3004FE33B /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993F1E791F7A9AC3004FE33B /* Movie.swift */; };
@@ -155,6 +156,7 @@
 		076E07661F92C5A800B91C75 /* PhoneSearchNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneSearchNavigator.swift; sourceTree = "<group>"; };
 		077EB05B1F9144BD007F3A19 /* AppAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAssembly.swift; sourceTree = "<group>"; };
 		0783E9821F940E3E003B68D8 /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
+		0783E9851F942679003B68D8 /* FeaturedRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedRepository.swift; sourceTree = "<group>"; };
 		992D27B71F7FFCA600BA79DE /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
 		992D27BA1F7FFD5E00BA79DE /* DetailSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSection.swift; sourceTree = "<group>"; };
 		993F1E791F7A9AC3004FE33B /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
@@ -297,6 +299,14 @@
 				0783E9821F940E3E003B68D8 /* Page.swift */,
 			);
 			path = Domain;
+			sourceTree = "<group>";
+		};
+		0783E9841F942661003B68D8 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				0783E9851F942679003B68D8 /* FeaturedRepository.swift */,
+			);
+			path = Repositories;
 			sourceTree = "<group>";
 		};
 		992D27B91F7FFD1F00BA79DE /* Domain */ = {
@@ -545,6 +555,7 @@
 		99C5C90B1F7B86CD0038688F /* Featured */ = {
 			isa = PBXGroup;
 			children = (
+				0783E9841F942661003B68D8 /* Repositories */,
 				0783E9811F940E32003B68D8 /* Domain */,
 				99C5C90E1F7B86F90038688F /* DI */,
 				99C5C90D1F7B86F20038688F /* Presentation */,
@@ -867,6 +878,7 @@
 				992D27BB1F7FFD5E00BA79DE /* DetailSection.swift in Sources */,
 				99A4653A1F7CE21C007F3B5B /* PosterStripCell.swift in Sources */,
 				0783E9831F940E3E003B68D8 /* Page.swift in Sources */,
+				0783E9861F942679003B68D8 /* FeaturedRepository.swift in Sources */,
 				993F1E7C1F7A9C0E004FE33B /* Show.swift in Sources */,
 				076E07651F92C23E00B91C75 /* SearchNavigator.swift in Sources */,
 				076E07671F92C5A800B91C75 /* PhoneSearchNavigator.swift in Sources */,

@@ -10,6 +10,8 @@ import Foundation
 
 internal enum Endpoint {
 	case configuration
+    case moviesNowPlaying(region: String, page: Int)
+    case showsOnTheAir(page: Int)
 }
 
 internal extension Endpoint {
@@ -42,9 +44,23 @@ private extension Endpoint {
 		switch self {
 		case .configuration:
 			return "configuration"
-		}
+        case .moviesNowPlaying:
+            return "movie/now_playing"
+        case .showsOnTheAir:
+            return "tv/on_the_air"
+        }
 	}
 	var parameters: [String: String] {
-		return [:]
-	}
+        switch self{
+        case .configuration:
+            return [:]
+        case .moviesNowPlaying(let region, let page):
+            return [
+                "region": region,
+                "page": String(page)
+            ]
+        case .showsOnTheAir(let page):
+            return [ "page": String(page) ]
+        }
+    }
 }

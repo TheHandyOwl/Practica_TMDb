@@ -13,12 +13,12 @@ struct Show: Decodable {
 	let title: String
 	let posterPath: String?
 	let backdropPath: String?
-	let firstAirDate: Date?
+	let firstAirDate: String?
 	let genreIdentifiers: [Int]?
 
 	private enum CodingKeys: String, CodingKey {
 		case identifier = "id"
-		case title
+		case title = "name"
 		case posterPath = "poster_path"
 		case backdropPath = "backdrop_path"
 		case firstAirDate = "first_air_date"

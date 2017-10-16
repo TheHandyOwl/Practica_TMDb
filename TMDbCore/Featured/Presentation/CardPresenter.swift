@@ -12,9 +12,11 @@ import RxCocoa
 /// Presents movies or shows in card views
 final class CardPresenter {
 	private let imageRepository: ImageRepositoryProtocol
+    private let dateFormatter: DateFormatter
 
-	init(imageRepository: ImageRepositoryProtocol) {
-		self.imageRepository = imageRepository
+    init(imageRepository: ImageRepositoryProtocol, dateFormatter: DateFormatter) {
+        self.imageRepository = imageRepository
+        self.dateFormatter = dateFormatter
 	}
 
 	func present(movie: Movie, in cardView: CardView) {
@@ -23,7 +25,8 @@ final class CardPresenter {
 		cardView.titleLabel.text = movie.title.uppercased()
 
 		let genre = movie.genreIdentifiers?.first.flatMap(Genre.name)
-		let year = (movie.releaseDate?.year).flatMap { String($0) }
+        let releaseDate = movie.releaseDate.flatMap { dateFormatter.date(from: $0) }
+		let year = (releaseDate?.year).flatMap { String($0) }
 
 		cardView.metadataLabel.text = [year, genre].flatMap { $0 }.joined(separator: " ⋅ ")
 	}
@@ -34,7 +37,8 @@ final class CardPresenter {
 		cardView.titleLabel.text = show.title.uppercased()
 
 		let genre = show.genreIdentifiers?.first.flatMap(Genre.name)
-		let year = (show.firstAirDate?.year).flatMap { String($0) }
+        let firstAirDate = show.firstAirDate.flatMap { dateFormatter.date(from: $0) }
+		let year = (firstAirDate?.year).flatMap { String($0) }
 
 		cardView.metadataLabel.text = [year, genre].flatMap { $0 }.joined(separator: " ⋅ ")
 	}

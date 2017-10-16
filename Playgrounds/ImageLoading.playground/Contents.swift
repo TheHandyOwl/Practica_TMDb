@@ -6,7 +6,7 @@ import PlaygroundSupport
 PlaygroundPage.current.needsIndefiniteExecution = true
 
 let disposeBag = DisposeBag()
-let assembly = CoreAssembly()
+let assembly = CoreAssembly(navigatorController: UINavigationController())
 let imageRepository = assembly.imageLoadingAssembly.imageRepository
 
 imageRepository.image(at: "ncEmkHADNggjR0dlerOIHqmiY0O.jpg", size: .w780)

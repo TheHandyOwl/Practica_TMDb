@@ -4,7 +4,7 @@ import PlaygroundSupport
 
 PlaygroundPage.current.needsIndefiniteExecution = true
 
-let assembly = CoreAssembly()
+let assembly = CoreAssembly(navigatorController: UINavigationController())
 let featuredViewController = assembly.featuredAssembly.viewController()
 
 featuredViewController.view.frame = CGRect(x: 0, y: 0, width: 375, height: 667)

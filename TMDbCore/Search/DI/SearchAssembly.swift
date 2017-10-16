@@ -11,11 +11,14 @@ import Foundation
 final class SearchAssembly {
 	private let imageLoadingAssembly: ImageLoadingAssembly
     private let detailAssembly: DetailAssembly
+    private let webServiceAssembly: WebServiceAssembly
 
 	init(imageLoadingAssembly: ImageLoadingAssembly,
-         detailAssembly: DetailAssembly) {
-		self.imageLoadingAssembly = imageLoadingAssembly
+         detailAssembly: DetailAssembly,
+         webServiceAssembly: WebServiceAssembly) {
+        self.imageLoadingAssembly = imageLoadingAssembly
         self.detailAssembly = detailAssembly
+        self.webServiceAssembly = webServiceAssembly
 	}
 
     // Pasamos la inyección a una extensión
@@ -35,7 +38,8 @@ final class SearchAssembly {
 	}
 
 	func resultPresenter() -> SearchResultPresenter {
-		return SearchResultPresenter(imageRepository: imageLoadingAssembly.imageRepository)
+		return SearchResultPresenter(imageRepository: imageLoadingAssembly.imageRepository,
+                                     dateFormatter: webServiceAssembly.dateFormatter)
 	}
 }
 

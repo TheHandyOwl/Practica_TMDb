@@ -13,8 +13,11 @@ final public class CoreAssembly {
                                                           navigationController: navigatorController)
     public private(set) lazy var featuredAssembly = FeaturedAssembly(imageLoadingAssembly: imageLoadingAssembly,
                                                                      detailAssembly: detailAssembly,
-                                                                     searchAssembly: searchAssembly)
-    private(set) lazy var searchAssembly = SearchAssembly(imageLoadingAssembly: imageLoadingAssembly, detailAssembly: detailAssembly)
+                                                                     searchAssembly: searchAssembly,
+                                                                     webServiceAssembly: webServiceAssembly)
+    private(set) lazy var searchAssembly = SearchAssembly(imageLoadingAssembly: imageLoadingAssembly,
+                                                          detailAssembly: detailAssembly,
+                                                          webServiceAssembly: webServiceAssembly)
 	private(set) lazy var imageLoadingAssembly = ImageLoadingAssembly(webServiceAssembly: webServiceAssembly)
 	private(set) lazy var webServiceAssembly = WebServiceAssembly()
     

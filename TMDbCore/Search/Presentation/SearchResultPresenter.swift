@@ -12,9 +12,11 @@ import RxCocoa
 /// Presents search results in cells
 final class SearchResultPresenter {
 	private let imageRepository: ImageRepositoryProtocol
+    private let dateFormatter: DateFormatter
 
-	init(imageRepository: ImageRepositoryProtocol) {
-		self.imageRepository = imageRepository
+    init(imageRepository: ImageRepositoryProtocol, dateFormatter: DateFormatter) {
+        self.imageRepository = imageRepository
+        self.dateFormatter = dateFormatter
 	}
 
 	func present(searchResult: SearchResult, in cell: SearchResultCell) {
@@ -36,8 +38,9 @@ private extension SearchResultPresenter {
 		cell.headlineLabel.text = NSLocalizedString("MOVIE", comment: "")
 		cell.titleLabel.text = movie.title
 
-		let metadata = (movie.releaseDate?.year).flatMap { String($0) } ?? ""
-		cell.metadataLabel.text = metadata
+        let releaseDate = movie.releaseDate.flatMap { dateFormatter.date(from: $0) }
+        let metadata = (releaseDate?.year).flatMap { String($0) } ?? ""
+        cell.metadataLabel.text = metadata
 		cell.metadataLabel.isHidden = metadata.isEmpty
 	}
 
@@ -47,7 +50,8 @@ private extension SearchResultPresenter {
 		cell.headlineLabel.text = NSLocalizedString("TV SHOW", comment: "")
 		cell.titleLabel.text = show.title
 
-		let metadata = (show.firstAirDate?.year).flatMap { String($0) } ?? ""
+        let firstAirDate = show.firstAirDate.flatMap { dateFormatter.date(from: $0) }
+        let metadata = (firstAirDate?.year).flatMap { String($0) } ?? ""
 		cell.metadataLabel.text = metadata
 		cell.metadataLabel.isHidden = metadata.isEmpty
 	}
@@ -62,9 +66,11 @@ private extension SearchResultPresenter {
 			.flatMap { media -> (String, Date?) in
 				switch media {
 				case .movie(let movie):
-					return (movie.title, movie.releaseDate)
+                    let releaseDate = movie.releaseDate.flatMap { dateFormatter.date(from: $0) }
+                    return (movie.title, releaseDate)
 				case .show(let show):
-					return (show.title, show.firstAirDate)
+                    let firstAirDate = show.firstAirDate.flatMap { dateFormatter.date(from: $0) }
+					return (show.title, firstAirDate)
 				}
 			}
 			.map { title, date in

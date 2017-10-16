@@ -20,10 +20,15 @@ protocol FeaturedView: class {
 
 final class FeaturedPresenter {
     private let detailNavigator: DetailNavigator
+    private let repository: FeaturedRepositoryProtocol
+    private let disposeBag = DisposeBag()
+    
 	weak var view: FeaturedView?
     
-    init(detailNavigator: DetailNavigator) {
+    init(detailNavigator: DetailNavigator,
+         repository: FeaturedRepositoryProtocol) {
         self.detailNavigator = detailNavigator
+        self.repository = repository
     }
     
 	func didLoad() {
@@ -31,7 +36,8 @@ final class FeaturedPresenter {
         view?.setShowsHeaderTitle(NSLocalizedString("ON TV", comment: ""))
 		view?.setMoviesHeaderTitle(NSLocalizedString("IN THEATERS", comment: ""))
 
-		addFakeContent()
+		//addFakeContent()
+        loadContents()
 	}
 
 	func didSelect(show: Show) {
@@ -45,6 +51,51 @@ final class FeaturedPresenter {
 	}
 }
 
+private extension FeaturedPresenter {
+    func loadContents() {
+        // Traemos los datos de shows y movies, pero nos quedamos los 3 primeros
+        let showsOnTheAir = repository.showsOnTheAir()
+            .map { $0.prefix(3) }
+        let moviesNowPlaying = repository.moviesNowPlaying(region: Locale.current.regionCode!)
+            .map { $0.prefix(3) }
+        
+        // Espera a tener los 2 datos y entonces ejecutará el closure
+        Observable.combineLatest(showsOnTheAir, moviesNowPlaying) { shows, movies in
+            return (shows, movies) // Devolvemos una tupla con ambos datos combinados. Tupla de ArraySlice y ArraySlice
+            }.observeOn(MainScheduler.instance) // Volvemos al principal para pintamos!!!
+            .subscribe(onNext: { [weak self] shows, movies in // El [weak self] es para evitar referencias circulares por si las moscas
+                // Como es una referencia débil podemos no tenerla
+                /*
+                 guard let presenter = self else {
+                 return
+                 }
+                 // No deja como ArraySlice
+                 // self.view?.update(with: shows)
+                 // self.view?.update(with: movies)
+                 // Sí deja como Array
+                 self?.view?.update(with: Array(shows))
+                 self?.view?.update(with: Array(movies))
+                 // Presenter no es una referencia débil
+                 presenter.view?.update(with: Array(shows))
+                 presenter.view?.update(with: Array(movies))
+                 */
+                
+                // Pero tiramos de truco para seguir usando self
+                guard let `self` = self else {
+                    return
+                }
+                // Aquí estamos tirando de truco
+                self.view?.update(with: Array(shows))
+                self.view?.update(with: Array(movies))
+                
+            })
+            .disposed(by: disposeBag)
+        
+    }
+}
+
+//FakeDataContent
+/*
 private extension FeaturedPresenter {
 	func addFakeContent() {
 		let shows = [
@@ -82,3 +133,4 @@ private extension FeaturedPresenter {
 		view?.update(with: movies)
 	}
 }
+*/
